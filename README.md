@@ -1,6 +1,6 @@
 # Paint MCP Server
 
-This project demonstrates an AI agent that performs calculations and visualizes results in Microsoft Paint using the Model-Code-Process (MCP) framework.
+This project demonstrates an AI agent that performs calculations and visualizes results in Microsoft Paint using the Model-Context-Protocol (MCP) framework.
 
 ## Overview
 
