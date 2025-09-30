@@ -101,11 +101,14 @@ The agent communicates with the MCP server and manages the workflow:
 ## Screenshots
 
 ### Paint Automation Result
-![Paint Automation Screenshot](images/s25-scr1.jpg)
+![Paint Automation Screenshot](images/s4-scr1.jpg)
 <p align="center"><i>Microsoft Paint MCP server logs 1 </i></p>
 
-![Paint Automation Screenshot](images/s25-scr2.jpg)
-<p align="center"><i>Microsoft Paint MCP server logs 1 </i></p>
+![Paint Automation Screenshot](images/s4-scr2.jpg)
+<p align="center"><i>Microsoft Paint MCP server logs 2 </i></p>
+
+![Paint Automation Screenshot](images/s4-scr3.jpg)
+<p align="center"><i>Microsoft Paint MCP server logs 3 </i></p>
 
 ## Logs
 
