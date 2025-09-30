@@ -34,7 +34,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(log_file),
+        logging.FileHandler(log_file, encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -50,156 +50,200 @@ mcp = FastMCP("Calculator")
 @mcp.tool()
 def add(a: int, b: int) -> int:
     """Add two numbers"""
-    logger.info("CALLED: add(a: int, b: int) -> int:")
-    return int(a + b)
+    logger.info(f"CALLED: add(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a + b)
+    logger.info(f"RETURNED: add -> {result}")
+    return result
 
 @mcp.tool()
 def add_list(l: list) -> int:
     """Add all numbers in a list"""
-    logger.info("CALLED: add(l: list) -> int:")
-    return sum(l)
+    logger.info(f"CALLED: add_list(l: list) -> int: l={l}")
+    result = sum(l)
+    logger.info(f"RETURNED: add_list -> {result}")
+    return result
 
 # subtraction tool
 @mcp.tool()
 def subtract(a: int, b: int) -> int:
     """Subtract two numbers"""
-    logger.info("CALLED: subtract(a: int, b: int) -> int:")
-    return int(a - b)
+    logger.info(f"CALLED: subtract(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a - b)
+    logger.info(f"RETURNED: subtract -> {result}")
+    return result
 
 # multiplication tool
 @mcp.tool()
 def multiply(a: int, b: int) -> int:
     """Multiply two numbers"""
-    logger.info("CALLED: multiply(a: int, b: int) -> int:")
-    return int(a * b)
+    logger.info(f"CALLED: multiply(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a * b)
+    logger.info(f"RETURNED: multiply -> {result}")
+    return result
 
 #  division tool
 @mcp.tool() 
 def divide(a: int, b: int) -> float:
     """Divide two numbers"""
-    logger.info("CALLED: divide(a: int, b: int) -> float:")
-    return float(a / b)
+    logger.info(f"CALLED: divide(a: int, b: int) -> float: a={a}, b={b}")
+    result = float(a / b)
+    logger.info(f"RETURNED: divide -> {result}")
+    return result
 
 # power tool
 @mcp.tool()
 def power(a: int, b: int) -> int:
     """Power of two numbers"""
-    logger.info("CALLED: power(a: int, b: int) -> int:")
-    return int(a ** b)
+    logger.info(f"CALLED: power(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a ** b)
+    logger.info(f"RETURNED: power -> {result}")
+    return result
 
 # square root tool
 @mcp.tool()
 def sqrt(a: int) -> float:
     """Square root of a number"""
-    logger.info("CALLED: sqrt(a: int) -> float:")
-    return float(a ** 0.5)
+    logger.info(f"CALLED: sqrt(a: int) -> float: a={a}")
+    result = float(a ** 0.5)
+    logger.info(f"RETURNED: sqrt -> {result}")
+    return result
 
 # cube root tool
 @mcp.tool()
 def cbrt(a: int) -> float:
     """Cube root of a number"""
-    logger.info("CALLED: cbrt(a: int) -> float:")
-    return float(a ** (1/3))
+    logger.info(f"CALLED: cbrt(a: int) -> float: a={a}")
+    result = float(a ** (1/3))
+    logger.info(f"RETURNED: cbrt -> {result}")
+    return result
 
 # factorial tool
 @mcp.tool()
 def factorial(a: int) -> int:
     """factorial of a number"""
-    logger.info("CALLED: factorial(a: int) -> int:")
-    return int(math.factorial(a))
+    logger.info(f"CALLED: factorial(a: int) -> int: a={a}")
+    result = int(math.factorial(a))
+    logger.info(f"RETURNED: factorial -> {result}")
+    return result
 
 # log tool
 @mcp.tool()
 def log(a: int) -> float:
     """log of a number"""
-    logger.info("CALLED: log(a: int) -> float:")
-    return float(math.log(a))
+    logger.info(f"CALLED: log(a: int) -> float: a={a}")
+    result = float(math.log(a))
+    logger.info(f"RETURNED: log -> {result}")
+    return result
 
 # remainder tool
 @mcp.tool()
 def remainder(a: int, b: int) -> int:
     """remainder of two numbers divison"""
-    logger.info("CALLED: remainder(a: int, b: int) -> int:")
-    return int(a % b)
+    logger.info(f"CALLED: remainder(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a % b)
+    logger.info(f"RETURNED: remainder -> {result}")
+    return result
 
 # sin tool
 @mcp.tool()
 def sin(a: int) -> float:
     """sin of a number"""
-    logger.info("CALLED: sin(a: int) -> float:")
-    return float(math.sin(a))
+    logger.info(f"CALLED: sin(a: int) -> float: a={a}")
+    result = float(math.sin(a))
+    logger.info(f"RETURNED: sin -> {result}")
+    return result
 
 # cos tool
 @mcp.tool()
 def cos(a: int) -> float:
     """cos of a number"""
-    logger.info("CALLED: cos(a: int) -> float:")
-    return float(math.cos(a))
+    logger.info(f"CALLED: cos(a: int) -> float: a={a}")
+    result = float(math.cos(a))
+    logger.info(f"RETURNED: cos -> {result}")
+    return result
 
 # tan tool
 @mcp.tool()
 def tan(a: int) -> float:
     """tan of a number"""
-    logger.info("CALLED: tan(a: int) -> float:")
-    return float(math.tan(a))
+    logger.info(f"CALLED: tan(a: int) -> float: a={a}")
+    result = float(math.tan(a))
+    logger.info(f"RETURNED: tan -> {result}")
+    return result
 
 # mine tool
 @mcp.tool()
 def mine(a: int, b: int) -> int:
     """special mining tool"""
-    logger.info("CALLED: mine(a: int, b: int) -> int:")
-    return int(a - b - b)
+    logger.info(f"CALLED: mine(a: int, b: int) -> int: a={a}, b={b}")
+    result = int(a - b - b)
+    logger.info(f"RETURNED: mine -> {result}")
+    return result
 
 @mcp.tool()
 def create_thumbnail(image_path: str) -> Image:
     """Create a thumbnail from an image"""
-    logger.info("CALLED: create_thumbnail(image_path: str) -> Image:")
+    logger.info(f"CALLED: create_thumbnail(image_path: str) -> Image: image_path='{image_path}'")
     img = PILImage.open(image_path)
     img.thumbnail((100, 100))
-    return Image(data=img.tobytes(), format="png")
+    result = Image(data=img.tobytes(), format="png")
+    logger.info(f"RETURNED: create_thumbnail -> Image object created")
+    return result
 
 @mcp.tool()
 def strings_to_chars_to_int(string: str) -> list[int]:
     """Return the ASCII values of the characters in a word"""
-    logger.info("CALLED: strings_to_chars_to_int(string: str) -> list[int]:")
-    return [int(ord(char)) for char in string]
+    logger.info(f"CALLED: strings_to_chars_to_int(string: str) -> list[int]: string='{string}'")
+    result = [int(ord(char)) for char in string]
+    logger.info(f"RETURNED: strings_to_chars_to_int -> {result}")
+    return result
 
 @mcp.tool()
 def int_list_to_exponential_sum(int_list: list) -> float:
     """Return sum of exponentials of numbers in a list"""
-    logger.info("CALLED: int_list_to_exponential_sum(int_list: list) -> float:")
-    return sum(math.exp(i) for i in int_list)
+    logger.info(f"CALLED: int_list_to_exponential_sum(int_list: list) -> float: int_list={int_list}")
+    result = sum(math.exp(i) for i in int_list)
+    logger.info(f"RETURNED: int_list_to_exponential_sum -> {result}")
+    return result
 
 @mcp.tool()
 def fibonacci_numbers(n: int) -> list:
     """Return the first n Fibonacci Numbers"""
-    logger.info("CALLED: fibonacci_numbers(n: int) -> list:")
+    logger.info(f"CALLED: fibonacci_numbers(n: int) -> list: n={n}")
     if n <= 0:
-        return []
+        result = []
+        logger.info(f"RETURNED: fibonacci_numbers -> {result} (n <= 0)")
+        return result
     fib_sequence = [0, 1]
     for _ in range(2, n):
         fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    return fib_sequence[:n]
+    result = fib_sequence[:n]
+    logger.info(f"RETURNED: fibonacci_numbers -> {result}")
+    return result
 
 
 @mcp.tool()
 async def draw_rectangle(x1: int, y1: int, x2: int, y2: int) -> dict:
     """Draw a rectangle in Paint from (x1,y1) to (x2,y2)"""
     global paint_app
+    logger.info(f"CALLED: draw_rectangle(x1: int, y1: int, x2: int, y2: int) -> dict: x1={x1}, y1={y1}, x2={x2}, y2={y2}")
     try:
         if not paint_app:
-            return {"content": [TextContent(type="text", text="Paint is not open. Please call open_paint first.")]}
+            error_msg = "Paint is not open. Please call open_paint first."
+            logger.error(f"RETURNED: draw_rectangle -> ERROR: {error_msg}")
+            return {"content": [TextContent(type="text", text=error_msg)]}
         
         logger.debug("Starting rectangle drawing operation")
         paint_window = paint_app.window(class_name='MSPaintApp')
         
         # Ensure Paint window is active
         if not paint_window.has_focus():
+            logger.debug("Paint window doesn't have focus, setting focus...")
             paint_window.set_focus()
             time.sleep(1)
             
         # Click Rectangle tool
-        logger.debug("Selecting rectangle tool")
+        logger.debug("Selecting rectangle tool at coordinates (445, 70)")
         paint_window.click_input(coords=(445, 70))
         time.sleep(1)
         
@@ -230,36 +274,44 @@ async def draw_rectangle(x1: int, y1: int, x2: int, y2: int) -> dict:
         # canvas.click_input(coords=(x2, y2+40))
         # time.sleep(1)      
 
+        result_text = f"Rectangle drawn from ({x1},{y1}) to ({x2},{y2})"
+        logger.info(f"RETURNED: draw_rectangle -> {result_text}")
         return {
-            "content": [TextContent(type="text", text=f"Rectangle drawn from ({x1},{y1}) to ({x2},{y2})")]
+            "content": [TextContent(type="text", text=result_text)]
         }
     except Exception as e:
+        error_msg = f"Error drawing rectangle: {str(e)}"
+        logger.error(f"RETURNED: draw_rectangle -> ERROR: {error_msg}")
         logger.error(f"Error in draw_rectangle: {str(e)}")
-        return {"content": [TextContent(type="text", text=f"Error drawing rectangle: {str(e)}")]}
+        return {"content": [TextContent(type="text", text=error_msg)]}
 
 @mcp.tool()
 async def add_text_in_paint(text: str) -> dict:
     """Add text in Paint"""
     global paint_app
+    logger.info(f"CALLED: add_text_in_paint(text: str) -> dict: text='{text}'")
     try:
         if not paint_app:
-            return {"content": [TextContent(type="text", text="Paint is not open. Please call open_paint first.")]}
+            error_msg = "Paint is not open. Please call open_paint first."
+            logger.error(f"RETURNED: add_text_in_paint -> ERROR: {error_msg}")
+            return {"content": [TextContent(type="text", text=error_msg)]}
         
         logger.debug("Starting text addition operation")
         paint_window = paint_app.window(class_name='MSPaintApp')
         
         # Ensure Paint window is active
         if not paint_window.has_focus():
+            logger.debug("Paint window doesn't have focus, setting focus...")
             paint_window.set_focus()
             time.sleep(0.5)
         
         # Select green color
-        logger.debug("Selecting green color")
+        logger.debug("Selecting green color at coordinates (895, 61)")
         paint_window.click_input(coords=(895, 61))
         time.sleep(0.5)
         
         # Select Text tool
-        logger.debug("Selecting text tool")
+        logger.debug("Selecting text tool at coordinates (290, 70)")
         paint_window.click_input(coords=(290, 70))
         time.sleep(0.5)
         
@@ -278,24 +330,31 @@ async def add_text_in_paint(text: str) -> dict:
         time.sleep(0.5)
         
         # Click outside to finish
+        logger.debug("Clicking outside to finish text input")
         canvas.click_input(coords=(50, 50))
         time.sleep(0.5)
 
+        result_text = f"Text:'{text}' added at ({text_x},{text_y})"
+        logger.info(f"RETURNED: add_text_in_paint -> {result_text}")
         return {
-            "content": [TextContent(type="text", text=f"Text:'{text}' added at ({text_x},{text_y})")]
+            "content": [TextContent(type="text", text=result_text)]
         }
     except Exception as e:
+        error_msg = f"Error adding text: {str(e)}"
+        logger.error(f"RETURNED: add_text_in_paint -> ERROR: {error_msg}")
         logger.error(f"Error in add_text_in_paint: {str(e)}")
-        return {"content": [TextContent(type="text", text=f"Error adding text: {str(e)}")]}
+        return {"content": [TextContent(type="text", text=error_msg)]}
 
 @mcp.tool()
 async def open_paint() -> dict:
     """Open Microsoft Paint maximized"""
     global paint_app
+    logger.info("CALLED: open_paint() -> dict")
     try:
         logger.debug("Starting Paint opening operation")
         paint_app = Application().start('mspaint.exe')
         time.sleep(1)
+        logger.debug("Paint application started successfully")
         
         paint_window = paint_app.window(class_name='MSPaintApp')
         
@@ -304,6 +363,7 @@ async def open_paint() -> dict:
         logger.debug(f"Initial Paint window rectangle: {initial_rect}")
         
         # Maximize window
+        logger.debug("Maximizing Paint window")
         win32gui.ShowWindow(paint_window.handle, win32con.SW_MAXIMIZE)
         time.sleep(0.5)
         
@@ -316,12 +376,16 @@ async def open_paint() -> dict:
         canvas_rect = canvas.rectangle()
         logger.debug(f"Canvas rectangle: {canvas_rect}")
         
+        result_text = "Paint opened successfully and maximized"
+        logger.info(f"RETURNED: open_paint -> {result_text}")
         return {
-            "content": [TextContent(type="text", text="Paint opened successfully and maximized")]
+            "content": [TextContent(type="text", text=result_text)]
         }
     except Exception as e:
+        error_msg = f"Error opening Paint: {str(e)}"
+        logger.error(f"RETURNED: open_paint -> ERROR: {error_msg}")
         logger.error(f"Error in open_paint: {str(e)}")
-        return {"content": [TextContent(type="text", text=f"Error opening Paint: {str(e)}")]}
+        return {"content": [TextContent(type="text", text=error_msg)]}
 
 
 # DEFINE RESOURCES
@@ -330,24 +394,31 @@ async def open_paint() -> dict:
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
-    logger.info("CALLED: get_greeting(name: str) -> str:")
-    return f"Hello, {name}!"
+    logger.info(f"CALLED: get_greeting(name: str) -> str: name='{name}'")
+    result = f"Hello, {name}!"
+    logger.info(f"RETURNED: get_greeting -> {result}")
+    return result
 
 
 # DEFINE AVAILABLE PROMPTS
 @mcp.prompt()
 def review_code(code: str) -> str:
-    return f"Please review this code:\n\n{code}"
-    logger.info("CALLED: review_code(code: str) -> str:")
+    logger.info(f"CALLED: review_code(code: str) -> str: code_length={len(code)}")
+    result = f"Please review this code:\n\n{code}"
+    logger.info(f"RETURNED: review_code -> generated prompt with {len(result)} characters")
+    return result
 
 
 @mcp.prompt()
 def debug_error(error: str) -> list[base.Message]:
-    return [
+    logger.info(f"CALLED: debug_error(error: str) -> list[base.Message]: error='{error}'")
+    result = [
         base.UserMessage("I'm seeing this error:"),
         base.UserMessage(error),
         base.AssistantMessage("I'll help debug that. What have you tried so far?"),
     ]
+    logger.info(f"RETURNED: debug_error -> generated {len(result)} messages")
+    return result
 
 system_prompt = f"""
 ...
